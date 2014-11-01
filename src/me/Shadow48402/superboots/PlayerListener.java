@@ -65,17 +65,20 @@ public class PlayerListener implements Listener{
 
 				if(!wearingBoots.containsKey(p)){
 					p.setSprinting(true);
+					p.sendMessage("debug");
 					wearingBoots.put(p, "RUN");
+				} else {
+					p.sendMessage("debug #2 : " + wearingBoots.get(p));
 				}
 			}
 			if ((p.getInventory().getBoots().hasItemMeta()) && 
 					(p.getInventory().getBoots().getType() == Material.IRON_BOOTS) && 
 					(p.getInventory().getBoots().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Sneak Boots"))){
-
+				
 				if(!wearingBoots.containsKey(p)){
 					p.setSneaking(true);
 					wearingBoots.put(p, "SNEAK");
-				}
+				} 
 			}
 			if ((p.getInventory().getBoots().hasItemMeta()) && 
 					(p.getInventory().getBoots().getType() == Material.LEATHER_BOOTS) && 
