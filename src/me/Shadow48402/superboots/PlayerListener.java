@@ -253,6 +253,7 @@ public class PlayerListener implements Listener{
 		}
 	}
 
+	@EventHandler
 	public void onDoubleJumpBoots(PlayerToggleFlightEvent e){
 		Player p = e.getPlayer();
 		
