@@ -63,12 +63,9 @@ public class PlayerListener implements Listener{
 					(p.getInventory().getBoots().getType() == Material.LEATHER_BOOTS) && 
 					(p.getInventory().getBoots().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Run Boots"))){
 
+				p.setSprinting(true);
 				if(!wearingBoots.containsKey(p)){
-					p.setSprinting(true);
-					p.sendMessage("debug");
 					wearingBoots.put(p, "RUN");
-				} else {
-					p.sendMessage("debug #2 : " + wearingBoots.get(p));
 				}
 			}
 			if ((p.getInventory().getBoots().hasItemMeta()) && 
