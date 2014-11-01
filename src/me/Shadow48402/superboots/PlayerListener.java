@@ -30,6 +30,11 @@ public class PlayerListener implements Listener{
 	public PlayerListener(Superboots plugin){
 		this.plugin = plugin;
 	}
+	
+	/*
+	 * New updates:
+	 * - Double Jump fix
+	 */
 
 	public HashMap<Player, String> wearingBoots = new HashMap<Player, String>();
 
@@ -79,6 +84,7 @@ public class PlayerListener implements Listener{
 						&& p.getLocation().subtract(0,1,0).getBlock().getType() != Material.AIR
 						&& !p.isFlying()){
 					p.setAllowFlight(true);
+					p.setFlying(true);
 				}
 			}
 			if(wearingBoots.containsKey(p)){
