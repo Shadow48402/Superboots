@@ -30,7 +30,7 @@ public class PlayerListener implements Listener{
 	public PlayerListener(Superboots plugin){
 		this.plugin = plugin;
 	}
-	
+
 	/*
 	 * New updates:
 	 * - Double Jump fix
@@ -62,7 +62,7 @@ public class PlayerListener implements Listener{
 			if ((p.getInventory().getBoots().hasItemMeta()) && 
 					(p.getInventory().getBoots().getType() == Material.LEATHER_BOOTS) && 
 					(p.getInventory().getBoots().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Run Boots"))){
-				
+
 				if(!wearingBoots.containsKey(p)){
 					p.setSprinting(true);
 					wearingBoots.put(p, "RUN");
@@ -71,7 +71,7 @@ public class PlayerListener implements Listener{
 			if ((p.getInventory().getBoots().hasItemMeta()) && 
 					(p.getInventory().getBoots().getType() == Material.IRON_BOOTS) && 
 					(p.getInventory().getBoots().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Sneak Boots"))){
-				
+
 				if(!wearingBoots.containsKey(p)){
 					p.setSneaking(true);
 					wearingBoots.put(p, "SNEAK");
@@ -83,8 +83,10 @@ public class PlayerListener implements Listener{
 				if(p.getGameMode() != GameMode.CREATIVE
 						&& p.getLocation().subtract(0,1,0).getBlock().getType() != Material.AIR
 						&& !p.isFlying()){
-					p.setAllowFlight(true);
-					p.setFlying(true);
+					if(!p.isOnGround()){
+						p.setAllowFlight(true);
+						p.setFlying(true);
+					}
 				}
 			}
 			if(wearingBoots.containsKey(p)){
@@ -256,12 +258,12 @@ public class PlayerListener implements Listener{
 	@EventHandler
 	public void onDoubleJumpBoots(PlayerToggleFlightEvent e){
 		Player p = e.getPlayer();
-		
+
 		if (p.getInventory().getBoots().hasItemMeta() && 
 				p.getInventory().getBoots().getType() == Material.LEATHER_BOOTS && 
 				p.getInventory().getBoots().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Double Jump Boots")){
+			
 			if(p.getGameMode() != GameMode.CREATIVE){
-				
 				p.setVelocity(p.getLocation().getDirection().multiply(1.5)
 						.setY(1));
 				p.setAllowFlight(false);
@@ -269,7 +271,7 @@ public class PlayerListener implements Listener{
 				e.setCancelled(true);
 				return;
 			}
-			
+
 		}
 		if (p.getInventory().getBoots().hasItemMeta() && 
 				p.getInventory().getBoots().getType() == Material.GOLD_BOOTS && 
