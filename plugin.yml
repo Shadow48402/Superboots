@@ -1,0 +1,7 @@
+name: Superboots
+version: 1.0.0
+main: me.Shadow48402.superboots.Superboots
+author: Shadow48402
+commands:
+  superboots:
+    description: Main superboots command
