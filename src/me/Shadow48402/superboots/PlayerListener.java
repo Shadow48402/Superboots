@@ -85,7 +85,6 @@ public class PlayerListener implements Listener{
 						&& !p.isFlying()){
 					if(!p.isOnGround()){
 						p.setAllowFlight(true);
-						p.setFlying(true);
 					}
 				}
 			}
@@ -270,6 +269,7 @@ public class PlayerListener implements Listener{
 				p.setFlying(false);
 				e.setCancelled(true);
 				return;
+				
 			}
 
 		}
