@@ -33,8 +33,8 @@ public class SuperbootsCommand implements CommandExecutor{
 			if (args.length == 1){
 				if (args[0].equalsIgnoreCase("help")){
 					p.sendMessage(ChatColor.BLACK + ")=-----------------------------------------------=(");
-					p.sendMessage(ChatColor.GRAY + "- Get command:" + ChatColor.GREEN + " /superboots <BootType> get");
-					p.sendMessage(ChatColor.GRAY + "- Give command:" + ChatColor.GREEN + " /superboots <BootType> give <player>");
+					p.sendMessage(ChatColor.GRAY + "- Get command:" + ChatColor.GREEN + " /superboots get <BootType>");
+					p.sendMessage(ChatColor.GRAY + "- Give command:" + ChatColor.GREEN + " /superboots give <BootType> <player>");
 					p.sendMessage(ChatColor.BLACK + "--------------------------------------------------");
 					p.sendMessage(ChatColor.GRAY + "List of all boots: " + ChatColor.GREEN + "/superboots list");
 					p.sendMessage(ChatColor.BLACK + ")=-----------------------------------------------=(");
@@ -88,19 +88,20 @@ public class SuperbootsCommand implements CommandExecutor{
 		}
 
 		switch(b){
-		case"fly": p.getInventory().addItem(new ItemStack[]{plugin.flyboots()});
-		case"speed": p.getInventory().addItem(new ItemStack[]{plugin.speedboots()});
-		case"jump": p.getInventory().addItem(new ItemStack[]{plugin.jumpboots()});
-		case"defence": p.getInventory().addItem(new ItemStack[]{plugin.defenceboots()});
-		case"food": p.getInventory().addItem(new ItemStack[]{plugin.foodboots()});
-		case"damage": p.getInventory().addItem(new ItemStack[]{plugin.damageboots()});
-		case"heal": p.getInventory().addItem(new ItemStack[]{plugin.healboots()});
-		case"vanish": p.getInventory().addItem(new ItemStack[]{plugin.vanishboots()});
-		case"mine": p.getInventory().addItem(new ItemStack[]{plugin.mineboots()});
-		case"dj": p.getInventory().addItem(new ItemStack[]{plugin.doublejumpboots()});
-		case"run": p.getInventory().addItem(new ItemStack[]{plugin.runboots()});
-		case"sneak":p.getInventory().addItem(new ItemStack[]{plugin.sneakboots()});
+			case"fly": p.getInventory().addItem(new ItemStack[]{plugin.flyboots()});
+			case"speed": p.getInventory().addItem(new ItemStack[]{plugin.speedboots()});
+			case"jump": p.getInventory().addItem(new ItemStack[]{plugin.jumpboots()});
+			case"defence": p.getInventory().addItem(new ItemStack[]{plugin.defenceboots()});
+			case"food": p.getInventory().addItem(new ItemStack[]{plugin.foodboots()});
+			case"damage": p.getInventory().addItem(new ItemStack[]{plugin.damageboots()});
+			case"heal": p.getInventory().addItem(new ItemStack[]{plugin.healboots()});
+			case"vanish": p.getInventory().addItem(new ItemStack[]{plugin.vanishboots()});
+			case"mine": p.getInventory().addItem(new ItemStack[]{plugin.mineboots()});
+			case"dj": p.getInventory().addItem(new ItemStack[]{plugin.doublejumpboots()});
+			case"run": p.getInventory().addItem(new ItemStack[]{plugin.runboots()});
+			case"sneak":p.getInventory().addItem(new ItemStack[]{plugin.sneakboots()});
 		}
+		p.sendMessage(ChatColor.GREEN + "You have now " + b + " boots in your inventory!");
 	}
 
 	/**
